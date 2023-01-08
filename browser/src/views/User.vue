@@ -74,7 +74,7 @@
 <script setup>
 import {reactive, ref} from "vue";
 import {Edit} from "@element-plus/icons-vue";
-import {updateUser, getUser, findUser} from "@/api";
+import {updateUser, getUser, findUser, getUserSelf} from "@/api";
 import {ElMessage} from "element-plus";
 
 const searchId = ref()
@@ -95,7 +95,15 @@ const handlePageChange = (val) => {
 
 // 获取表格数据
 const getData = () => {
-  getUser(query.current, query.size).then(res => {
+  let url = window.location.href;
+  console.log(url);
+  var f=null;
+  if(url.indexOf("self=true")!=-1){
+    f = getUserSelf();
+  }else{
+    f = getUser(query.current, query.size);
+  }
+  f.then(res => {
     if (res.data.code === 10000) {
       tableData.value = res.data.data.records
       pageTotal.value = res.data.data.total

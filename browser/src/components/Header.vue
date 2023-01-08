@@ -24,6 +24,7 @@
 					</span>
           <template #dropdown>
             <el-dropdown-menu>
+              <el-dropdown-item divided command="editUser">账号信息</el-dropdown-item>
               <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
@@ -52,6 +53,8 @@ const handleCommand = (command) => {
   if (command === 'logout') {
     accountStore.reset()
     router.push('/login')
+  }else if(command === "editUser"){
+    router.push("/user?self=true")
   }
 };
 </script>

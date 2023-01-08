@@ -76,6 +76,17 @@ export const getUser = (current, size) => {
   })
 }
 
+// 得到当前登录用户的信息
+export const getUserSelf = () => {
+  return request({
+    url: '/user/self',
+    method: 'get',
+    headers: {
+      'Authorization': "Bearer " + getToken()
+    }
+  })
+}
+
 // 改变用户数据
 export const updateUser = (userId, address, phone, sex, isAdmin) => {
   return request({
