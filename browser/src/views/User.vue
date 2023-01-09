@@ -105,6 +105,7 @@ const getData = () => {
   }
   f.then(res => {
     if (res.data.code === 10000) {
+      console.log(res.data);
       tableData.value = res.data.data.records
       pageTotal.value = res.data.data.total
     } else {

@@ -1,7 +1,7 @@
 import request from "@/utils/request";
-import {getRefreshToken, getToken} from "@/utils/token";
-import {useAccountStore} from "@/store/account";
-import {stringify} from "qs";
+import { getRefreshToken, getToken } from "@/utils/token";
+import { useAccountStore } from "@/store/account";
+import { stringify } from "qs";
 
 // 登录
 export const login = (username, password) => {
@@ -269,5 +269,12 @@ export const addArticle = (article) => {
     url: '/article/add',
     method: 'post',
     data: article
+  })
+}
+
+export const getGoodsPricesRange = () => {
+  return request({
+    url: '/stat/getGoodsPricesRange',
+    method: 'get',
   })
 }

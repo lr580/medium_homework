@@ -49,6 +49,14 @@ const router = createRouter({
             title: '商品信息',
           },
           component: () => import('../views/Article.vue')
+        },
+        {
+          path: '/stat',
+          name: 'stat',
+          meta: {
+            title: '统计信息',
+          },
+          component: () => import('../views/Stat.vue')
         }
       ]
     },
