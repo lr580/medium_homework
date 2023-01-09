@@ -278,3 +278,10 @@ export const getGoodsPricesRange = () => {
     method: 'get',
   })
 }
+
+export const getCompaniesGeoRanges = () => {
+  return request({
+    url: '/stat/getCompaniesGeoRanges',
+    method: 'get'
+  })
+}

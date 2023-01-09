@@ -1,26 +1,26 @@
 package com.example.express.controller;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.express.bean.ResponseBean;
 import com.example.express.entity.article.ArticleEntity;
+import com.example.express.entity.company.CompanyEntity;
 import com.example.express.mapper.article.ArticleMapper;
+import com.example.express.mapper.company.CompanyMapper;
 
 @RestController
 @RequestMapping(value = "/stat")
 public class EchartController {
     @Autowired
     private ArticleMapper articleMapper;
-
-    @GetMapping(value = "/a")
-    public ResponseBean<String> test() {
-        return ResponseBean.success("你好");
-    }
+    @Autowired
+    private CompanyMapper companyMapper;
 
     @GetMapping(value = "/getGoodsPricesRange")
     public ResponseBean<List<Integer>> getGoodsPricesRange() {
@@ -44,5 +44,21 @@ public class EchartController {
             }
         }
         return ResponseBean.success(lt);
+    }
+
+    @GetMapping(value = "/getCompaniesGeoRanges")
+    public ResponseBean<Map<String, Integer>> getCompaniesGeoRanges() {
+        Map<String, Integer> m = new HashMap<>();
+        List<CompanyEntity> companies = companyMapper.selectList(null);
+        for (int i = 0, n = companies.size(); i < n; ++i) {
+            CompanyEntity company = companies.get(i);
+            String geo = company.getAddress();
+            if (m.get(geo) == null) {
+                m.put(geo, 1);
+            } else {
+                m.put(geo, m.get(geo) + 1);
+            }
+        }
+        return ResponseBean.success(m);
     }
 }
