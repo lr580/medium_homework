@@ -76,6 +76,17 @@ export const getUser = (current, size) => {
   })
 }
 
+// 得到当前登录用户的信息
+export const getUserSelf = () => {
+  return request({
+    url: '/user/self',
+    method: 'get',
+    headers: {
+      'Authorization': "Bearer " + getToken()
+    }
+  })
+}
+
 // 改变用户数据
 export const updateUser = (userId, address, phone, sex, isAdmin) => {
   return request({
@@ -230,5 +241,33 @@ export const findArticle = (key, current, size) => {
       current: current,
       size: size
     }
+  })
+}
+
+//修改商品信息
+export const updateArticle = (article) => {
+  return request({
+    url: '/article/update',
+    method: 'post',
+    data: article
+  })
+}
+
+export const deleteArticle = (articleId) => {
+  return request({
+    url: '/article/delete',
+    method: 'post',
+    data: stringify({
+      articleId: articleId
+    })
+  })
+}
+
+
+export const addArticle = (article) => {
+  return request({
+    url: '/article/add',
+    method: 'post',
+    data: article
   })
 }

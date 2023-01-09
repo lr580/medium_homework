@@ -42,6 +42,20 @@ public class UserController {
     }
   }
   
+  @GetMapping("/self")
+  public ResponseBean<Page<UserEntity>> getSelf(
+    @RequestHeader(value = "Authorization") String token
+   ) {
+      UserEntity user = getUserByToken(token);
+      Integer userid = user.getUserId();
+      QueryWrapper<UserEntity> usQueryWrapper = 
+              new QueryWrapper<>();
+      usQueryWrapper.eq("user_id",userid);
+      Page<UserEntity> page = new Page<>(1, 1);
+      Page<UserEntity> res = userMapper.selectPage(page, usQueryWrapper);
+      return ResponseBean.success(res);
+  }
+  
   @PostMapping("/update")
   public ResponseBean<String> update(
     @RequestParam int userId,
@@ -51,7 +65,10 @@ public class UserController {
     @RequestParam boolean isAdmin,
     @RequestHeader(value = "Authorization") String token
   ) {
-    if (isAdmin(token)) {
+    if (isAdmin(token) || isSelf(userId, token)) {
+      if(!isAdmin(token) && isAdmin) {
+          return ResponseBean.error(10010, "不能把自己改成管理员");
+      }
       UserEntity user = userMapper.selectById(userId);
       user.setAddress(address);
       user.setPhone(phone);
@@ -69,11 +86,24 @@ public class UserController {
     @RequestParam int userId,
     @RequestHeader(value = "Authorization") String token
   ) {
-    if (isAdmin(token)) {
+    if (isAdmin(token) || isSelf(userId, token)) {
       return ResponseBean.success(userMapper.selectById(userId));
     } else {
-      return ResponseBean.error(10010, "非管理员");
+      return ResponseBean.error(10010, "权限不足");
     }
+  }
+  
+  private UserEntity getUserByToken(String token) {
+      String username = TokenUtil.getUsernameByToken(token);
+      QueryWrapper<UserEntity> queryWrapper = new QueryWrapper<>();
+      queryWrapper.eq("username", username);
+      UserEntity user = userMapper.selectOne(queryWrapper);
+      return user;
+  }
+  
+  private boolean isSelf(int userId, String token) {
+      UserEntity user = getUserByToken(token);
+      return user.getUserId() == userId;
   }
   
   private boolean isAdmin(String token) {

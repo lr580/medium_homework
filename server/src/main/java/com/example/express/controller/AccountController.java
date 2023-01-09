@@ -11,6 +11,9 @@ import com.example.express.mapper.user.UserMapper;
 import com.example.express.mapper.user.UserSecretMapper;
 import com.example.express.mapper.user.UserTokenMapper;
 import com.example.express.utils.TokenUtil;
+
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 import org.springframework.web.bind.annotation.*;
 
 import java.nio.charset.StandardCharsets;
