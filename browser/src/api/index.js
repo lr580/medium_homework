@@ -177,6 +177,14 @@ export const getAllCompany = (current, size) => {
   })
 }
 
+export const addCompany = (company) => {
+  return request({
+    url: '/company/add',
+    method: 'post',
+    data: company
+  })
+}
+
 // 查找公司信息
 export const findCompany = (key, current, size) => {
   return request({
@@ -189,6 +197,27 @@ export const findCompany = (key, current, size) => {
     }
   })
 }
+
+//删除公司信息
+export const deleteCompany = (companyId) => {
+  return request({
+    url: '/company/delete',
+    method: 'post',
+    data: stringify({
+      companyId: companyId
+    })
+  })
+}
+
+// 更新公司信息
+export const updateCompany = (company) => {
+  return request({
+    url: '/company/update',
+    method: 'post',
+    data: company
+  })
+}
+
 
 // 得到所有商品信息
 export const getAllArticle = (current, size) => {
