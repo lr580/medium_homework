@@ -53,7 +53,7 @@ const userItems = [
     title: '商品信息',
   },
   {
-    icon: 'Shop',
+    icon: 'Notebook',
     path: '/stat',
     title: '统计信息',
   }

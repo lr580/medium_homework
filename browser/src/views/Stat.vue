@@ -64,7 +64,6 @@ export default {
                     name: i
                 });
             }
-            console.log(option2);
             this.myChart.setOption(option2);
         }
     }
