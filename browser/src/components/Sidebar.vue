@@ -53,6 +53,11 @@ const userItems = [
     icon: 'Notebook',
     path: '/stat',
     title: '统计信息',
+  },
+  {
+    icon: 'Share',
+    path: '/about',
+    title: '关于',
   }
 ]
 

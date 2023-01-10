@@ -65,6 +65,14 @@ const router = createRouter({
             title: '后台状态',
           },
           component: () => import('../views/Board.vue')
+        },
+        {
+          path: '/about',
+          name: 'about',
+          meta: {
+            title: '关于',
+          },
+          component: () => import('../views/About.vue')
         }
       ]
     },
