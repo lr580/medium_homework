@@ -243,3 +243,31 @@ export const findArticle = (key, current, size) => {
     }
   })
 }
+
+//修改商品信息
+export const updateArticle = (article) => {
+  return request({
+    url: '/article/update',
+    method: 'post',
+    data: article
+  })
+}
+
+export const deleteArticle = (articleId) => {
+  return request({
+    url: '/article/delete',
+    method: 'post',
+    data: stringify({
+      articleId: articleId
+    })
+  })
+}
+
+
+export const addArticle = (article) => {
+  return request({
+    url: '/article/add',
+    method: 'post',
+    data: article
+  })
+}
