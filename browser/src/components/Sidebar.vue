@@ -1,15 +1,7 @@
 <template>
   <div class="sidebar">
-    <el-menu
-      class="sidebar-el-menu"
-      :default-active="onRoutes"
-      :collapse="sidebarStore.collapse"
-      background-color="#324157"
-      text-color="#bfcbd9"
-      active-text-color="#20a0ff"
-      unique-opened
-      router
-    >
+    <el-menu class="sidebar-el-menu" :default-active="onRoutes" :collapse="sidebarStore.collapse"
+      background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
       <template v-if="accountStore.user.admin">
         <el-menu-item v-for='item in adminItems' :index="item.path" :key="item.path">
           <el-icon>
@@ -31,12 +23,17 @@
 </template>
 
 <script setup>
-import {computed, ref} from 'vue'
-import {useSidebarStore} from '@/store/sidebar'
-import {useRoute} from 'vue-router'
-import {useAccountStore} from "@/store/account"
+import { computed, ref } from 'vue'
+import { useSidebarStore } from '@/store/sidebar'
+import { useRoute } from 'vue-router'
+import { useAccountStore } from "@/store/account"
 
 const userItems = [
+  {
+    icon: 'Platform',
+    path: '/board',
+    title: '后台状态',
+  },
   {
     icon: 'Box',
     path: '/express',
@@ -96,7 +93,7 @@ const accountStore = useAccountStore()
   width: 250px;
 }
 
-.sidebar > ul {
+.sidebar>ul {
   height: 100%;
 }
 </style>

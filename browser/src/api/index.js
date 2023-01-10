@@ -285,3 +285,10 @@ export const getCompaniesGeoRanges = () => {
     method: 'get'
   })
 }
+
+export const getBoardState = () => {
+  return request({
+    url: '/board/state',
+    method: 'get'
+  })
+}
