@@ -51,29 +51,20 @@ const userItems = [
     icon: 'Shop',
     path: '/product',
     title: '商品信息',
+  },
+  {
+    icon: 'Notebook',
+    path: '/stat',
+    title: '统计信息',
   }
 ]
 
 const adminItems = [
-  {
-    icon: 'Box',
-    path: '/express',
-    title: '快递信息',
-  },
+  ...userItems,
   {
     icon: 'Postcard',
     path: '/user',
     title: '用户管理',
-  },
-  {
-    icon: 'OfficeBuilding',
-    path: '/company',
-    title: '快递公司',
-  },
-  {
-    icon: 'Shop',
-    path: '/product',
-    title: '商品信息',
   }
 ]
 
