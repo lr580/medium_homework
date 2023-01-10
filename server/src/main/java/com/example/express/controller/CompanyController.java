@@ -11,12 +11,6 @@ import com.example.express.mapper.user.UserMapper;
 import com.example.express.utils.CheckAdminUtil;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * .
- *
- * @author 985892345
- * 2022/12/13 19:23
- */
 @RestController
 @RequestMapping("/company")
 public class CompanyController {

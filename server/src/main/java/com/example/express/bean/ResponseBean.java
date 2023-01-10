@@ -11,9 +11,6 @@ import lombok.Data;
  * 20001    登录过期
  *
  * 30000    未知报错
- *
- * @author 985892345
- * 2022/12/12 14:45
  */
 @Data
 @AllArgsConstructor

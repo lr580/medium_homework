@@ -9,12 +9,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-/**
- * .
- *
- * @author 985892345
- * 2022/12/12 15:21
- */
 public class TokenUtil {
 
     /**

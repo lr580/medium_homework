@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * token 拦截器，负责拦截 token 过期的请求
- *
- * @author 985892345
- * 2022/12/12 23:26
  */
 public class TokenInterceptor implements HandlerInterceptor {
   

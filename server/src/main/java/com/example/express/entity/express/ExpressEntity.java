@@ -9,12 +9,7 @@ import org.springframework.lang.Nullable;
 
 import java.sql.Timestamp;
 
-/**
- * .
- *
- * @author 985892345
- * 2022/12/12 15:05
- */
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

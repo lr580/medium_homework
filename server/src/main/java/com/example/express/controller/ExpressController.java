@@ -13,12 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * .
- *
- * @author 985892345
- * 2022/12/12 15:10
- */
 @RestController
 @RequestMapping(value = "/express")
 public class ExpressController {

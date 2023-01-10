@@ -7,12 +7,7 @@ import lombok.Data;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * .
- *
- * @author 985892345
- * 2022/12/12 20:11
- */
+
 @Data
 @AllArgsConstructor
 @TableName(value = "user")

@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.*;
  *  * <p>
  *  * code: 10010
  *  * info: 非管理员
- *
- * @author 985892345
- * 2022/12/15 15:05
  */
 @RestController
 @RequestMapping(value = "/user")

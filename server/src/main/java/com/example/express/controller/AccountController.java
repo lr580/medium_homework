@@ -30,9 +30,6 @@ import java.security.MessageDigest;
  * 5、得到自身信息
  *
  * 其中鉴权采用互联网流行的 OAuth2.0 方案，使用 token 和 refreshToken 进行用户身份判断
- *
- * @author 985892345
- * 2022/12/12 20:03
  */
 @RestController
 @RequestMapping(value = "/account")
